@@ -24,6 +24,7 @@
             <strong><%= tweeet.user.name %></strong><br />
             <small><%= tweeet.user.username%></small><br />
             <p><%= tweeet.tweeet %></p>
+            <p><%= Time.at(tweeet.created_at).in_time_zone("Europe/Berlin").strftime("%d/%m/%y %I:%M %p") %></p>
           </div>
           <nav class="level">
             <div class="level-left is-mobile">
