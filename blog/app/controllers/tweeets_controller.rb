@@ -1,5 +1,5 @@
 class TweeetsController < ApplicationController
-  before_action :set_tweeet, only: [:show, :edit, :update, :destroy]
+  before_action :set_tweeet, only: [:show, :edit, :update, :destroy, :like]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /tweeets
@@ -64,17 +64,17 @@ class TweeetsController < ApplicationController
   end
 
   def like
-   m = myModel.find(params[:id])
+    @oldLikes = @tweeet.likes
+    @tweeet.likes = @oldLikes + 1
+    @tweeet.save
 
-   m.update(booleanField: !m.booleanField)
-
-   render nothing: true
-end
+    redirect_to tweeets_url
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tweeet
-      @tweeet = Tweeet.find(params[:id])
+      @tweeet = Tweeet.find(params[:tweeet_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
