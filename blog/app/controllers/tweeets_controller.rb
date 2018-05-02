@@ -63,6 +63,14 @@ class TweeetsController < ApplicationController
     end
   end
 
+  def like
+   m = myModel.find(params[:id])
+
+   m.update(booleanField: !m.booleanField)
+
+   render nothing: true
+end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tweeet
