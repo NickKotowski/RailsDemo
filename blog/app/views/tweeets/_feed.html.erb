@@ -45,9 +45,10 @@
               } do %>
                 <span class="icon"> <i class="fa fa-trash-o" aria-hidden="true"></i></span>
               <% end %>
-              <!--   func()  / 1st param, hier loop / method -->
-              <%= link_to new_like_path(tweeet) do %>
-                <p>[^]</p>
+              <% if user_signed_in? %>
+                <%= link_to(likes_new_path(tweeet, current_user)) do %>
+                  <p>[^]</p>
+                <% end %>
               <% end %>
             </div>
           </nav>

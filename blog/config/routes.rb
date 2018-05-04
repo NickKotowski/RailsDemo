@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   get 'welcome/about', to: 'welcome#about'
 
-  get 'likes/new/:id', to: 'likes#new'
+  match 'likes/new/:tweeet/:user' => 'likes#new', via: :get, as: :likes_new
 end

@@ -4,7 +4,8 @@ class LikesController < ApplicationController
   end
 
   def new
-    @tweeet = params[:id]
+    @tweeet = params[:tweeet]
+    @user = params[:user]
   end
 
   private
