@@ -46,6 +46,11 @@
                 <span class="icon"> <i class="fa fa-trash-o" aria-hidden="true"></i></span>
               <% end %>
               <% if user_signed_in? %>
+              <% end %>
+              <% if Like.exists?(user_id: current_user.id, tweeet_id: tweeet.id) %>
+                <p>Unlike</p>
+              <% else %>
+                <p>Like</p>
                 <%= link_to(likes_new_path(tweeet, current_user)) do %>
                   <p>[^]</p>
                 <% end %>

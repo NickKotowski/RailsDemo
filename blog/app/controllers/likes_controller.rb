@@ -4,8 +4,11 @@ class LikesController < ApplicationController
   end
 
   def new
-    @tweeet = params[:tweeet]
-    @user = params[:user]
+    @tweeet = Tweeet.find(params[:tweeet])
+    @user = User.find(params[:user])
+    @like = Like.new(tweeet: @tweeet, user_id: @user.id)
+    @like.save
+    redirect_to tweeets_url
   end
 
   private
