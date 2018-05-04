@@ -1,20 +1,16 @@
 class LikesController < ApplicationController
-  def create
-    if post.likes.create(user: current_user)
-      redirect_to post_redirect(post), :notice => 'Liked!'
-    else
-      redirect_to post_redirect(post), :alert => 'An error prevented you from liking this post!'
-    end
+  def index
+
   end
 
-  def destroy
-    post.likes.where(user: current_user).destroy_all
-    redirect_to post_redirect(post), :notice => 'Unliked!'
+  def new
+    @tweeet = params[:id]
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_tweeet
 
-  def post
-    @post ||= Post.find(params[:id])
-  end
+    end
+
 end

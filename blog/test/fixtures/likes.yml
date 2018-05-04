@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tweeet_id: 1
+  people_liking_tweeet: 1
+
+two:
+  tweeet_id: 1
+  people_liking_tweeet: 1
