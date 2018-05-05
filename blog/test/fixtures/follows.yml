@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  followee: 1
+  follower: MyString
+  integer: MyString
+
+two:
+  followee: 1
+  follower: MyString
+  integer: MyString
