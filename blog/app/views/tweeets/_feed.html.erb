@@ -23,15 +23,9 @@
           <div class="content">
             <strong><%= tweeet.user.name %></strong><br />
             <small><%= "@"+tweeet.user.username%></small><br />
-            <small>
-              <% if tweeet.likes.nil?%>
-                <%= "No likes"%>
-              <% else %>
-                <%= tweeet.likes%>
-              <% end %>
-            </small><br />
             <p><%= tweeet.tweeet %></p>
             <p><%= Time.at(tweeet.created_at).in_time_zone("Europe/Berlin").strftime("%d/%m/%y %I:%M %p") %></p>
+            <p>Likes: <%=Like.where(:tweeet_id => tweeet).count%></p>
           </div>
           <nav class="level">
             <div class="level-left is-mobile">
@@ -46,16 +40,13 @@
                 <span class="icon"> <i class="fa fa-trash-o" aria-hidden="true"></i></span>
               <% end %>
               <% if user_signed_in? %>
-                <p>Likes: <%=Like.where(:tweeet_id => tweeet).count%></p>
                 <% if Like.exists?(user_id: current_user.id, tweeet_id: tweeet.id) %>
-                  <p>Unlike</p>
                   <%= link_to(like_delete_path(tweeet, current_user)) do %>
-                    <p>[v]</p>
+                    <span class="icon"> <i class="fa fa-heart" aria-hidden="true"></i></span>
                   <% end %>
                 <% else %>
-                  <p>Like</p>
                   <%= link_to(likes_new_path(tweeet, current_user)) do %>
-                    <p>[^]</p>
+                    <span class="icon"> <i class="fa fa-heart-o" aria-hidden="true"></i></span>
                   <% end %>
                 <% end %>
               <% end %>
