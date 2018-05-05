@@ -49,6 +49,9 @@
                 <p>Likes: <%=Like.where(:tweeet_id => tweeet).count%></p>
                 <% if Like.exists?(user_id: current_user.id, tweeet_id: tweeet.id) %>
                   <p>Unlike</p>
+                  <%= link_to(like_delete_path(tweeet, current_user)) do %>
+                    <p>[v]</p>
+                  <% end %>
                 <% else %>
                   <p>Like</p>
                   <%= link_to(likes_new_path(tweeet, current_user)) do %>

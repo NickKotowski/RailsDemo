@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   get 'welcome/about', to: 'welcome#about'
 
   match 'likes/new/:tweeet/:user' => 'likes#new', via: :get, as: :likes_new
+  match 'delete/like/:tweeet/:user' => 'likes#destroy', via: :get, as: :like_delete
 end
