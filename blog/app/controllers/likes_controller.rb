@@ -17,7 +17,6 @@ class LikesController < ApplicationController
     @like_to_be_deleted = Like.where(:user_id => @user.id, :tweeet_id => @tweeet.id)
     Like.delete(@like_to_be_deleted)
     redirect_to tweeets_url
-
   end
 
   private
