@@ -14,4 +14,5 @@ Rails.application.routes.draw do
 
   match 'likes/new/:tweeet/:user' => 'likes#new', via: :get, as: :likes_new
   match 'delete/like/:tweeet/:user' => 'likes#destroy', via: :get, as: :like_delete
+  match 'add/follow/:followee/:follower' => 'follows#new_follow', via: :get, as: :add_follow
 end

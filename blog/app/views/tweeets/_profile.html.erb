@@ -29,22 +29,24 @@
             <p class="title is-6"><%= current_user.tweeets.count %></p>
           </div>
         </div>
-        <div>
-          <div class="level-item has-centered-text">
-            <p class="heading">Followers</p>
+        <% if user_signed_in? %>
+          <div>
+            <div class="level-item has-centered-text">
+              <p class="heading">Followers</p>
+            </div>
+            <div class="level-item has-centered-text">
+              <p class="title is-6"><%=Follow.where(:followee => current_user.id).count%></p>
+            </div>
           </div>
-          <div class="level-item has-centered-text">
-            <p class="title is-6">234</p>
+          <div>
+            <div class="level-item has-centered-text">
+              <p class="heading">Following</p>
+            </div>
+            <div class="level-item has-centered-text">
+              <p class="title is-6"><%=Follow.where(:user => current_user.id).count%></p>
+            </div>
           </div>
-        </div>
-        <div>
-          <div class="level-item has-centered-text">
-            <p class="heading">Following</p>
-          </div>
-          <div class="level-item has-centered-text">
-            <p class="title is-6">234</p>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </nav>
