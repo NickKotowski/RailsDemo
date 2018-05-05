@@ -11,6 +11,13 @@ class FollowsController < ApplicationController
     redirect_to tweeets_url
   end
 
+  def remove_follow
+    set_user
+    @follow_to_be_destroyed = Follow.where(user: @user, user_id: @user.id, followee: @followee.id)
+    Follow.delete(@follow_to_be_destroyed)
+    redirect_to tweeets_url
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

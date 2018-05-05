@@ -21,7 +21,7 @@
                 <small>@<%= user.username%></small>
                 <% if user_signed_in? %>
                   <% if Follow.exists?(followee: user.id, user_id: current_user.id) %>
-                    <%= link_to new_tweeet_path do %>
+                    <%= link_to(remove_follow_path(user.id, current_user)) do %>
                       <span> <p>Unfollow</p></span>
                     <% end %>
                   <% else %>
