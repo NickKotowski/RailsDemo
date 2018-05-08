@@ -22,11 +22,11 @@ class LikesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tweeet
-      @tweeet = Tweeet.find(params[:tweeet])
+      @tweeet = Tweeet.find(params[:tweeet_id])
     end
 
     def set_user
-      @user = User.find(params[:user])
+      @user = User.find(params[:user_id])
     end
 
 end

@@ -44,11 +44,12 @@
                       <span class="icon"> <i class="fa fa-trash-o" aria-hidden="true"></i></span>
                     <% end %>
                     <% if Like.exists?(user_id: current_user.id, tweeet_id: tweeet.id) %>
-                      <%= link_to(like_delete_path(tweeet, current_user)) do %>
+                      <%= link_to user_tweeet_likes_path(current_user, tweeet.id), method: :delete, data: { confirm: " Are you sure you want to unlike this tweeet"
+                      } do %>
                         <span class="icon"> <i class="fa fa-heart" aria-hidden="true"></i></span>
                       <% end %>
                     <% else %>
-                      <%= link_to(likes_new_path(tweeet, current_user)) do %>
+                      <%= link_to(new_user_tweeet_like_path(current_user, tweeet)) do %>
                         <span class="icon"> <i class="fa fa-heart-o" aria-hidden="true"></i></span>
                       <% end %>
                     <% end %>
